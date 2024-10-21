@@ -7,7 +7,8 @@ Step 2:Extracted Firmware Filesystem by the command ```binwalk -e IoTGoat-raspbe
 Step 3:Viewed the content of the file _IoTGoat-raspberry-pi2.img.extracted/squashfs-root/etc/passwd* by ```cat _IoTGoat-raspberry-pi2.img.extracted/squashfs-root/etc/passwd```
        Founded root has access to /bin/ash, iotgoatuser also has access to /bin/ash
        
-Step 4:
+Step 4:Checked the /etc/shadow file for password hashes by ```cat __IoTGoat-raspberry-pi2.img.extracted/squashfs-root/etc/shadow``` and founded the hashes root: $1$Jl7H1VOG$Wgw2F/C.nLNTC.4pwDa4H1
+iotgoatuser: $1$79bz0K8z$Ii6Q/if83F1QodGmkb4Ah.
 
 Step 5:
 
