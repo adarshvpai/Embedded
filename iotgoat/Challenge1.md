@@ -1,4 +1,4 @@
-## Challenge 1:Weak, Guessable, or Hardcoded Passwords
+# Challenge 1:Weak, Guessable, or Hardcoded Passwords
 
 Step 1: Downloaded the IoTGoat-raspberry-pi2.img from the github
 
