@@ -17,6 +17,6 @@ Step 7: Used the tool medusa to brute force every password stored in the file mi
 
 Step 8: Founded the password by brute forcing and it is: ```7ujMko0vizxv``` 
 
-Step 9: 
+Step 9: Logged in to the iotgoatby the ssh command ```ssh -o HostKeyAlgorithms=+ssh-rsa iotgoatuser@192.168.137.183 -p 22 ```. ```-o HostKeyAlgorithms=+ssh-rsa``` is used due to the ssh+rsa certification
 
 Step 10:
