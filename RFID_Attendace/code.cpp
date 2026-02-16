@@ -51,15 +51,15 @@ void setup() {
 }
 
 void loop() {
-  digitalWrite(Blue, HIGH); // Turn on Blue LED to indicate scanning
+  digitalWrite(Blue, HIGH);
 
   mfrc522.PCD_Init();
   if (!mfrc522.PICC_IsNewCardPresent()) {
-    digitalWrite(Blue, LOW); // Turn off Blue LED if no card present
+    digitalWrite(Blue, LOW); 
     return;
   }
   if (!mfrc522.PICC_ReadCardSerial()) {
-    digitalWrite(Blue, LOW); // Turn off Blue LED if card reading failed
+    digitalWrite(Blue, LOW); 
     return;
   }
 
@@ -71,13 +71,13 @@ void loop() {
   Serial.print(F("UID read from RFID: "));
   Serial.println(uid);
 
-  digitalWrite(Blue, LOW); // Turn off Blue LED as UID is successfully read
+  digitalWrite(Blue, LOW); 
 
   if (WiFi.status() == WL_CONNECTED) {
     std::unique_ptr<BearSSL::WiFiClientSecure> client(new BearSSL::WiFiClientSecure);
     client->setFingerprint(fingerprint);
 
-    // Check if the read UID matches any stored UID
+    // Check the UID matches any stored UID
     card_holder_name = getUserName(uid);
     if (!card_holder_name.isEmpty()) {
       card_holder_name = sheet_url + card_holder_name;
@@ -86,28 +86,28 @@ void loop() {
         int httpCode = https.GET();
         if (httpCode > 0) {
           Serial.printf("[HTTPS] GET... code: %d\n", httpCode);
-          digitalWrite(Green, HIGH); // Turn on Green LED to indicate successful transmission
+          digitalWrite(Green, HIGH);
           delay(200);
-          digitalWrite(Green, LOW); // Turn off Green LED
+          digitalWrite(Green, LOW);
         } else {
           Serial.printf("[HTTPS] GET... failed, error: %s\n", https.errorToString(httpCode).c_str());
-          digitalWrite(Red, HIGH); // Turn on Red LED to indicate failed transmission
+          digitalWrite(Red, HIGH); 
           delay(200);
-          digitalWrite(Red, LOW); // Turn off Red LED
+          digitalWrite(Red, LOW);
         }
         https.end();
         delay(1000);
       } else {
         Serial.printf("[HTTPS} Unable to connect\n");
-        digitalWrite(Red, HIGH); // Turn on Red LED to indicate unable to connect
+        digitalWrite(Red, HIGH);
         delay(200);
-        digitalWrite(Red, LOW); // Turn off Red LED
+        digitalWrite(Red, LOW);
       }
     } else {
       Serial.println("Unknown user");
-      digitalWrite(Red, HIGH); // Turn on Red LED to indicate unknown user
+      digitalWrite(Red, HIGH); 
       delay(200);
-      digitalWrite(Red, LOW); // Turn off Red LED
+      digitalWrite(Red, LOW); 
     }
   }
 }
@@ -127,5 +127,5 @@ String getUserName(String uid) {
       return users[i].name;
     }
   }
-  return ""; // Return empty string if UID is not found
+  return "";
 }
