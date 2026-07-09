@@ -105,39 +105,6 @@ The detection framework was validated against four hardware Trojan implementatio
 - Effect: Data integrity violation
 - Detection: Feature extraction + Decision Tree
 
----
-
-## Project Structure
-
-```
-secure_async_fifo/
-│
-├── async_fifo_top.v
-├── write_controller.v
-├── read_controller.v
-├── gray_encoder.v
-├── sync_2ff.v
-├── fifo_memory.v
-│
-├── feature_extractor.v
-├── rule_checker.v
-├── decision_tree.v
-├── security_monitor.v
-│
-├── tb_async_fifo.v
-│
-├── simulation/
-│   ├── normal_operation.png
-│   ├── trojan1.png
-│   ├── trojan2.png
-│   ├── trojan3.png
-│   └── trojan4.png
-│
-├── paper/
-│   └── Secure_Asynchronous_FIFO.pdf
-│
-└── README.md
-```
 
 ---
 
